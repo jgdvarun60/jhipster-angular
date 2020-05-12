@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity RangeFilter.
+    -->
+    <changeSet id="20200512225639-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="range_filter_id"
+                                 baseTableName="range_filter_in_list"
+                                 constraintName="fk_range_filter_in_list_range_filter_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="range_filter"/>
+
+        <addForeignKeyConstraint baseColumnNames="in_list_id"
+                                 baseTableName="range_filter_in_list"
+                                 constraintName="fk_range_filter_in_list_in_list_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dummy"/>
+        
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,66 @@
+{
+    "name": "RangeFilter",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "expression",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hide",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "equals",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "greaterThan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "greaterThanOrEqual",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inArr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lessThan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lessThanOrEqual",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "specified",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "dummy",
+            "otherEntityRelationshipName": "rangeFilter",
+            "relationshipName": "inList",
+            "otherEntityField": "dummy",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200512225639",
+    "entityTableName": "range_filter",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ProTrack"
+    ]
+}

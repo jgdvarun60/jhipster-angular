@@ -1,0 +1,54 @@
+{
+    "name": "StringFilter",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "expression",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hide",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "contains",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "equals",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inArr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "specified",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "dummy",
+            "otherEntityRelationshipName": "stringFilter",
+            "relationshipName": "inlist",
+            "otherEntityField": "dummy",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200512225640",
+    "entityTableName": "string_filter",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ProTrack"
+    ]
+}

@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span>Range Filters</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-range-filter" [routerLink]="['/range-filter/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Range Filter
+            </span>
+        </button>
+    </h2>
+    <btgrp-alert></btgrp-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="rangeFilters?.length === 0">
+        <span>No rangeFilters found</span>
+    </div>
+    <div class="table-responsive" *ngIf="rangeFilters?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Title</span></th>
+            <th><span>Expression</span></th>
+            <th><span>Hide</span></th>
+            <th><span>Equals</span></th>
+            <th><span>Greater Than</span></th>
+            <th><span>Greater Than Or Equal</span></th>
+            <th><span>In Arr</span></th>
+            <th><span>Less Than</span></th>
+            <th><span>Less Than Or Equal</span></th>
+            <th><span>Specified</span></th>
+            <th><span>In List</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let rangeFilter of rangeFilters ;trackBy: trackId">
+                <td><a [routerLink]="['/range-filter', rangeFilter.id, 'view' ]">{{rangeFilter.id}}</a></td>
+                <td>{{rangeFilter.title}}</td>
+                <td>{{rangeFilter.expression}}</td>
+                <td>{{rangeFilter.hide}}</td>
+                <td>{{rangeFilter.equals}}</td>
+                <td>{{rangeFilter.greaterThan}}</td>
+                <td>{{rangeFilter.greaterThanOrEqual}}</td>
+                <td>{{rangeFilter.inArr}}</td>
+                <td>{{rangeFilter.lessThan}}</td>
+                <td>{{rangeFilter.lessThanOrEqual}}</td>
+                <td>{{rangeFilter.specified}}</td>
+                <td>
+                    <span *ngFor="let inList of rangeFilter.inLists; let last = last">
+                            <a class="form-control-static" [routerLink]="['/dummy', inList?.id, 'view' ]">{{inList.dummy}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/range-filter', rangeFilter.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/range-filter', rangeFilter.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/range-filter', { outlets: { popup: rangeFilter.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

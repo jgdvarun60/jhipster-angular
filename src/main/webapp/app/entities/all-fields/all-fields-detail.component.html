@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="allFields">
+            <h2><span>All Fields</span> {{allFields.id}}</h2>
+            <hr>
+            <btgrp-alert-error></btgrp-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Double Field</span></dt>
+                <dd>
+                    <span>{{allFields.doubleField}}</span>
+                </dd>
+                <dt><span>Float Field</span></dt>
+                <dd>
+                    <span>{{allFields.floatField}}</span>
+                </dd>
+                <dt><span>Long Field</span></dt>
+                <dd>
+                    <span>{{allFields.longField}}</span>
+                </dd>
+                <dt><span>Instant Field</span></dt>
+                <dd>
+                    <span>{{allFields.instantField}}</span>
+                </dd>
+                <dt><span>Duration Field</span></dt>
+                <dd>
+                    <span>{{allFields.durationField}}</span>
+                </dd>
+                <dt><span>String Field</span></dt>
+                <dd>
+                    <span>{{allFields.stringField}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/all-fields', allFields.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

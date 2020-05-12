@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dummyEnums">
+            <h2><span>Dummy Enums</span> {{dummyEnums.id}}</h2>
+            <hr>
+            <btgrp-alert-error></btgrp-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Dummy</span></dt>
+                <dd>
+                    <span>{{dummyEnums.dummy}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dummy-enums', dummyEnums.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

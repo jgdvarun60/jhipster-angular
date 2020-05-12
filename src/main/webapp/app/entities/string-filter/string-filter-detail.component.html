@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stringFilter">
+            <h2><span>String Filter</span> {{stringFilter.id}}</h2>
+            <hr>
+            <btgrp-alert-error></btgrp-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{stringFilter.title}}</span>
+                </dd>
+                <dt><span>Expression</span></dt>
+                <dd>
+                    <span>{{stringFilter.expression}}</span>
+                </dd>
+                <dt><span>Hide</span></dt>
+                <dd>
+                    <span>{{stringFilter.hide}}</span>
+                </dd>
+                <dt><span>Contains</span></dt>
+                <dd>
+                    <span>{{stringFilter.contains}}</span>
+                </dd>
+                <dt><span>Equals</span></dt>
+                <dd>
+                    <span>{{stringFilter.equals}}</span>
+                </dd>
+                <dt><span>In Arr</span></dt>
+                <dd>
+                    <span>{{stringFilter.inArr}}</span>
+                </dd>
+                <dt><span>Specified</span></dt>
+                <dd>
+                    <span>{{stringFilter.specified}}</span>
+                </dd>
+                <dt><span>Inlist</span></dt>
+                <dd>
+                    <span *ngFor="let inlist of stringFilter.inlists; let last = last">
+                        <a [routerLink]="['/dummy', inlist?.id, 'view' ]">{{inlist.dummy}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/string-filter', stringFilter.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

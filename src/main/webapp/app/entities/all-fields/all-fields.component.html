@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span>All Fields</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-all-fields" [routerLink]="['/all-fields/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new All Fields
+            </span>
+        </button>
+    </h2>
+    <btgrp-alert></btgrp-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="allFields?.length === 0">
+        <span>No allFields found</span>
+    </div>
+    <div class="table-responsive" *ngIf="allFields?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Double Field</span></th>
+            <th><span>Float Field</span></th>
+            <th><span>Long Field</span></th>
+            <th><span>Instant Field</span></th>
+            <th><span>Duration Field</span></th>
+            <th><span>String Field</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let allFields of allFields ;trackBy: trackId">
+                <td><a [routerLink]="['/all-fields', allFields.id, 'view' ]">{{allFields.id}}</a></td>
+                <td>{{allFields.doubleField}}</td>
+                <td>{{allFields.floatField}}</td>
+                <td>{{allFields.longField}}</td>
+                <td>{{allFields.instantField | date:'medium'}}</td>
+                <td>{{allFields.durationField}}</td>
+                <td>{{allFields.stringField}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/all-fields', allFields.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/all-fields', allFields.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/all-fields', { outlets: { popup: allFields.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

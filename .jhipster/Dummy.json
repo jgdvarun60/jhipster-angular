@@ -1,0 +1,21 @@
+{
+    "name": "Dummy",
+    "fields": [
+        {
+            "fieldName": "dummy",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200512225637",
+    "entityTableName": "dummy",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ProTrack"
+    ]
+}

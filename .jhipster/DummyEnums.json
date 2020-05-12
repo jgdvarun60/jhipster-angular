@@ -1,0 +1,22 @@
+{
+    "name": "DummyEnums",
+    "fields": [
+        {
+            "fieldName": "dummy",
+            "fieldType": "DummyEnum",
+            "fieldValues": "A,B,C"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200512225638",
+    "entityTableName": "dummy_enums",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ProTrack"
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "name": "AllFields",
+    "fields": [
+        {
+            "fieldName": "doubleField",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 2,
+            "fieldValidateRulesMax": 5
+        },
+        {
+            "fieldName": "floatField",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 2,
+            "fieldValidateRulesMax": 5
+        },
+        {
+            "fieldName": "longField",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 2,
+            "fieldValidateRulesMax": 5
+        },
+        {
+            "fieldName": "instantField",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "durationField",
+            "fieldType": "Duration"
+        },
+        {
+            "fieldName": "stringField",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength",
+                "pattern"
+            ],
+            "fieldValidateRulesMinlength": 3,
+            "fieldValidateRulesMaxlength": 25,
+            "fieldValidateRulesPattern": "^[A-Z][a-z]+\\d$"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200512225636",
+    "entityTableName": "all_fields",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ProTrack"
+    ]
+}

@@ -1,0 +1,73 @@
+application {
+  config {
+    baseName ProTrack,
+    applicationType monolith,
+    packageName com.btgrp.protrack,
+    authenticationType jwt,
+    prodDatabaseType postgresql,
+    devDatabaseType h2Memory,
+    cacheProvider ehcache,
+    buildTool maven,
+    jhiPrefix btgrp,
+    enableTranslation false,
+    clientFramework angular,
+    testFrameworks []
+  }
+  entities *
+}
+
+entity AllFields {
+  doubleField Double min(2) max(5),
+    floatField Float min(2) max(5),
+    longField Long min(2) max(5),
+    instantField Instant,
+    durationField Duration,
+    stringField String minlength(3) maxlength(25) pattern(/^[A-Z][a-z]+\d$/)
+}
+entity Dummy {
+  dummy String
+}
+enum DummyEnum {
+  A, B, C
+}
+entity DummyEnums {
+  dummy DummyEnum
+}
+entity RangeFilter {
+  title String,
+  expression String,
+  hide Boolean,
+  equals String,
+  greaterThan String,
+  greaterThanOrEqual String,
+  inArr String,
+  lessThan String,
+  lessThanOrEqual String,
+  specified Boolean
+}
+relationship ManyToMany {
+  RangeFilter{inList(dummy)} to Dummy
+}
+entity StringFilter {
+  title String,
+  expression String,
+  hide Boolean,
+  contains String,
+  equals String,
+  inArr String,
+  specified Boolean
+}
+relationship ManyToMany {
+  StringFilter{inlist(dummy)} to Dummy
+}
+entity EnumFilter {
+  title String,
+  expression String,
+  hide Boolean,
+  equals DummyEnum,
+  inArr DummyEnum,
+  specified Boolean
+}
+relationship ManyToMany {
+  EnumFilter{inlist(dummy)} to DummyEnums
+}

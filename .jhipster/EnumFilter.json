@@ -1,0 +1,52 @@
+{
+    "name": "EnumFilter",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "expression",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hide",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "equals",
+            "fieldType": "DummyEnum",
+            "fieldValues": "A,B,C"
+        },
+        {
+            "fieldName": "inArr",
+            "fieldType": "DummyEnum",
+            "fieldValues": "A,B,C"
+        },
+        {
+            "fieldName": "specified",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "dummyEnums",
+            "otherEntityRelationshipName": "enumFilter",
+            "relationshipName": "inlist",
+            "otherEntityField": "dummy",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200512225641",
+    "entityTableName": "enum_filter",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "ProTrack"
+    ]
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity EnumFilter.
+    -->
+    <changeSet id="20200512225641-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="enum_filter_id"
+                                 baseTableName="enum_filter_inlist"
+                                 constraintName="fk_enum_filter_inlist_enum_filter_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="enum_filter"/>
+
+        <addForeignKeyConstraint baseColumnNames="inlist_id"
+                                 baseTableName="enum_filter_inlist"
+                                 constraintName="fk_enum_filter_inlist_inlist_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dummy_enums"/>
+        
+    </changeSet>
+</databaseChangeLog>

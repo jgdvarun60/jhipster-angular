@@ -1,0 +1,111 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="btgrp-all-fields-heading">Create or edit a All Fields</h2>
+            <div>
+                <btgrp-alert-error></btgrp-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_doubleField">Double Field</label>
+                    <input type="number" class="form-control" name="doubleField" id="field_doubleField"
+                           formControlName="doubleField"/>
+                    <div *ngIf="editForm.get('doubleField').invalid && (editForm.get('doubleField').dirty || editForm.get('doubleField').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('doubleField').errors.min">
+                            This field should be at least 2.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('doubleField').errors.max">
+                            This field cannot be more than 5.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('doubleField')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_floatField">Float Field</label>
+                    <input type="number" class="form-control" name="floatField" id="field_floatField"
+                           formControlName="floatField"/>
+                    <div *ngIf="editForm.get('floatField').invalid && (editForm.get('floatField').dirty || editForm.get('floatField').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('floatField').errors.min">
+                            This field should be at least 2.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('floatField').errors.max">
+                            This field cannot be more than 5.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('floatField')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_longField">Long Field</label>
+                    <input type="number" class="form-control" name="longField" id="field_longField"
+                           formControlName="longField"/>
+                    <div *ngIf="editForm.get('longField').invalid && (editForm.get('longField').dirty || editForm.get('longField').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('longField').errors.min">
+                            This field should be at least 2.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('longField').errors.max">
+                            This field cannot be more than 5.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('longField')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_instantField">Instant Field</label>
+                    <div class="d-flex">
+                        <input id="field_instantField" type="datetime-local" class="form-control" name="instantField" formControlName="instantField" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_durationField">Duration Field</label>
+                    <input type="number" class="form-control" name="durationField" id="field_durationField"
+                           formControlName="durationField"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stringField">String Field</label>
+                    <input type="text" class="form-control" name="stringField" id="field_stringField"
+                           formControlName="stringField"/>
+                    <div *ngIf="editForm.get('stringField').invalid && (editForm.get('stringField').dirty || editForm.get('stringField').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('stringField').errors.minlength">
+                        This field is required to be at least 3 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('stringField').errors.maxlength">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('stringField').errors.pattern">
+                            This field should follow pattern for "String Field".
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

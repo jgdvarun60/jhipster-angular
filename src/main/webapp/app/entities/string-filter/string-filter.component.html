@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span>String Filters</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-string-filter" [routerLink]="['/string-filter/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new String Filter
+            </span>
+        </button>
+    </h2>
+    <btgrp-alert></btgrp-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="stringFilters?.length === 0">
+        <span>No stringFilters found</span>
+    </div>
+    <div class="table-responsive" *ngIf="stringFilters?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Title</span></th>
+            <th><span>Expression</span></th>
+            <th><span>Hide</span></th>
+            <th><span>Contains</span></th>
+            <th><span>Equals</span></th>
+            <th><span>In Arr</span></th>
+            <th><span>Specified</span></th>
+            <th><span>Inlist</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let stringFilter of stringFilters ;trackBy: trackId">
+                <td><a [routerLink]="['/string-filter', stringFilter.id, 'view' ]">{{stringFilter.id}}</a></td>
+                <td>{{stringFilter.title}}</td>
+                <td>{{stringFilter.expression}}</td>
+                <td>{{stringFilter.hide}}</td>
+                <td>{{stringFilter.contains}}</td>
+                <td>{{stringFilter.equals}}</td>
+                <td>{{stringFilter.inArr}}</td>
+                <td>{{stringFilter.specified}}</td>
+                <td>
+                    <span *ngFor="let inlist of stringFilter.inlists; let last = last">
+                            <a class="form-control-static" [routerLink]="['/dummy', inlist?.id, 'view' ]">{{inlist.dummy}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/string-filter', stringFilter.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/string-filter', stringFilter.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/string-filter', { outlets: { popup: stringFilter.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
