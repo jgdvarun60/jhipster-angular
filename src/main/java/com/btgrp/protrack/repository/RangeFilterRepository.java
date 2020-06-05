@@ -1,5 +1,6 @@
 package com.btgrp.protrack.repository;
 import com.btgrp.protrack.domain.RangeFilter;
+import org.javers.spring.annotation.JaversSpringDataAuditable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
@@ -13,6 +14,7 @@ import java.util.Optional;
  * Spring Data  repository for the RangeFilter entity.
  */
 @Repository
+@JaversSpringDataAuditable
 public interface RangeFilterRepository extends JpaRepository<RangeFilter, Long> {
 
     @Query(value = "select distinct rangeFilter from RangeFilter rangeFilter left join fetch rangeFilter.inLists",

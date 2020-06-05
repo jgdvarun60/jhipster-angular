@@ -1,5 +1,6 @@
 package com.btgrp.protrack.repository;
 import com.btgrp.protrack.domain.StringFilter;
+import org.javers.spring.annotation.JaversSpringDataAuditable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
@@ -13,6 +14,7 @@ import java.util.Optional;
  * Spring Data  repository for the StringFilter entity.
  */
 @Repository
+@JaversSpringDataAuditable
 public interface StringFilterRepository extends JpaRepository<StringFilter, Long> {
 
     @Query(value = "select distinct stringFilter from StringFilter stringFilter left join fetch stringFilter.inlists",

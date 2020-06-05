@@ -14,7 +14,7 @@ import java.util.Set;
 @Entity
 @Table(name = "string_filter")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class StringFilter implements Serializable {
+public class StringFilter extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -162,13 +162,11 @@ public class StringFilter implements Serializable {
 
     public StringFilter addInlist(Dummy dummy) {
         this.inlists.add(dummy);
-        dummy.getStringFilters().add(this);
         return this;
     }
 
     public StringFilter removeInlist(Dummy dummy) {
         this.inlists.remove(dummy);
-        dummy.getStringFilters().remove(this);
         return this;
     }
 

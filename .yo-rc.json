@@ -38,5 +38,10 @@
     "otherModules": [],
     "blueprints": []
   },
-  "entities": ["AllFields", "Dummy", "DummyEnums", "RangeFilter", "StringFilter", "EnumFilter"]
+  "entities": ["AllFields", "Dummy", "DummyEnums", "RangeFilter", "StringFilter", "EnumFilter"],
+  "generator-jhipster-entity-audit": {
+    "auditFramework": "javers",
+    "auditPage": true,
+    "lastLiquibaseTimestamp": 1591358648000
+  }
 }

@@ -16,7 +16,7 @@ import com.btgrp.protrack.domain.enumeration.DummyEnum;
 @Entity
 @Table(name = "enum_filter")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class EnumFilter implements Serializable {
+public class EnumFilter extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -150,13 +150,11 @@ public class EnumFilter implements Serializable {
 
     public EnumFilter addInlist(DummyEnums dummyEnums) {
         this.inlists.add(dummyEnums);
-        dummyEnums.getEnumFilters().add(this);
         return this;
     }
 
     public EnumFilter removeInlist(DummyEnums dummyEnums) {
         this.inlists.remove(dummyEnums);
-        dummyEnums.getEnumFilters().remove(this);
         return this;
     }
 

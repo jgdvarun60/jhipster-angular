@@ -14,7 +14,7 @@ import java.util.Set;
 @Entity
 @Table(name = "range_filter")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class RangeFilter implements Serializable {
+public class RangeFilter extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -210,13 +210,11 @@ public class RangeFilter implements Serializable {
 
     public RangeFilter addInList(Dummy dummy) {
         this.inLists.add(dummy);
-        dummy.getRangeFilters().add(this);
         return this;
     }
 
     public RangeFilter removeInList(Dummy dummy) {
         this.inLists.remove(dummy);
-        dummy.getRangeFilters().remove(this);
         return this;
     }
 
